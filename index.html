@@ -2,297 +2,288 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>toofan</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Business Shop</title>
   <style>
-    :root {
-      --primary-color: #ff6f61;
-      --hover-color: #ff3b2e;
-      --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-      --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      --border-radius: 12px;
-    }
-
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-gradient);
+      background: url("https://ibb.co/sdtkyjxK") no-repeat center center fixed;
+      background-size: cover;
       color: #333;
-      scroll-behavior: smooth;
     }
-
-    header {
-      background-color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: #333;
-      margin: 4px 0;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary-color);
-    }
-
-    .nav-links {
-      display: flex;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #fff;
-        flex-direction: column;
-        box-shadow: var(--box-shadow);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-        margin: 0;
-      }
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .intro {
-      text-align: center;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .service-box {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      transition: transform 0.3s;
-    }
-
-    .service-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .contact-form textarea, .contact-form input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background-color: var(--primary-color);
+    header, footer {
+      background: rgba(0,0,0,0.8);
       color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
+      padding: 1em;
+      text-align: center;
     }
-
-    .btn:hover {
-      background-color: var(--hover-color);
+    nav {
+      text-align: right;
+      padding: 1em;
+      background: rgba(0,0,0,0.7);
+      color: white;
     }
-
-    .social-icons {
+    .container {
+      padding: 2em;
+      background: rgba(255,255,255,0.9);
+      margin: 1em auto;
+      max-width: 900px;
+      border-radius: 10px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 1em;
+      margin-bottom: 1em;
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1rem;
+      align-items: center;
+      gap: 1em;
     }
-
-    .social-icons a {
-      color: #333;
-      font-size: 1.5rem;
-      transition: color 0.3s, transform 0.3s;
+    .product img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
     }
-
-    .social-icons a:hover {
-      color: var(--primary-color);
-      transform: scale(1.2);
+    .cart, .tracking, .feedback, .contact {
+      margin-top: 2em;
     }
-
-    .profile-pic {
-      display: block;
-      max-width: 150px;
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-      box-shadow: var(--box-shadow);
+    input, button, select, textarea {
+      margin-top: 0.5em;
+      padding: 0.5em;
+      width: 100%;
     }
-
-    footer {
-      background-color: #fff;
-      text-align: center;
-      padding: 1rem;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      margin-top: 2rem;
+    .contact-icons {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-top: 1em;
     }
-
-    .contact-details {
-      margin-top: 2rem;
-      text-align: center;
+    .contact-icons img {
+      width: 24px;
+      height: 24px;
+    }
+    #signupModal, #delivererConfirm {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 2em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>TOOFAN HUB</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav>
-      <div class="nav-links" id="navLinks">
-        <a href="#intro">Intro</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Get in Touch</a>
-      </div>
-    </nav>
+    <h1>Modern Business Shop</h1>
   </header>
 
-  <section id="intro" class="intro">
-    <h2>Welcome to My Personal Site</h2>
-    <p>Hi! I'm a creative individual passionate about technology and design.</p>
-    <img src="https://i.ibb.co/8LK5k8CZ/20240411-164315.jpg" alt="profile picture" class="profile-pic"
-  </section> <section id="about">
-    <h2>About Me</h2>
-    <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.
-I'm a dedicated web designer with a focus on blending innovative design with seamless functionality. With a strong background in crafting responsive, user-centric websites, I create digital experiences that are both visually compelling and intuitive to navigate. My goal is to help businesses build strong online identities by translating their vision into well-executed, beautiful websites. Whether you need a fresh design or a website overhaul, I’m here to bring your ideas to life with precision and creativity.Not only do I specialise on web developing but also Electrical engineering.
-As an electrical engineer, I specialize in designing and implementing innovative solutions for complex electrical systems. With a deep understanding of circuitry, power distribution, and control systems, I’m dedicated to creating efficient, reliable, and safe electrical systems that meet the highest industry standards. Whether working on large-scale projects or intricate technical designs, I thrive on solving challenges and delivering practical, cutting-edge solutions to my clients.</p>
-  </section>
+  <nav>
+    <button onclick="showLogin()">Login/Signup</button>
+  </nav>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="services">
-      <div class="service-box">
-        <h3>Web Design</h3>
-        <p>Responsive, modern designs tailored to your brand.Professional web design services that combine creativity with functionality. From responsive websites to custom designs, I focus on delivering seamless, user-friendly experiences that help businesses make a lasting online impression.</p>
+  <div class="container" id="main" style="display: none;">
+    <div class="product">
+      <img src="https://i.ibb.co/ycVGW0v6/Screenshot-20250501-162539-Whats-App.jpg" alt="Product A"/>
+      <div>
+        <h2>sudheis</h2>
+        <p>Price: Ksh 1000</p>
+        <button onclick="addToCart('Product A', 1000)">Add to Trolley</button>
       </div>
-      <div class="service-box">
-        <h3>Development</h3>
-        <p>Clean and efficient code for fast and scalable websites.I provide comprehensive web development services, specializing in building fast, secure, and scalable websites. From front-end design to back-end functionality, I use the latest technologies to create custom web solutions that are tailored to your business needs. Whether it's a simple landing page or a complex web application, I ensure that your website performs flawlessly across all devices.</p>
-      </div>
-      <div class="service-box">
-        <h3>Electrical Engineering</h3>
-        <p>I offer expert electrical engineering services, specializing in designing and optimizing electrical systems for efficiency, safety, and reliability. Whether you're working on power distribution, control systems, or circuit design, I provide customized solutions that meet industry standards and ensure optimal performance. From residential to industrial projects, I’m dedicated to delivering high-quality results with precision and innovation.</p>
-      </div>
-      
     </div>
-  </section>
-
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Share your views..."></textarea>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
-
-    <div class="contact-details" style="margin-top: 2rem; text-align: center;">
-      <h3>Contact Me</h3>
-      <p><i class="fas fa-phone-alt"></i> Call Me: 0754247413</p>
-      <p><i class="fab fa-instagram"></i> Instagram: @toofan2217</p>
-      <p><i class="fas fa-envelope"></i> Email: kombobakari610@gmail.com</p>
+    <div class="product">
+      <img src="https://i.ibb.co/qY0Cpvbd/Screenshot-20250501-162556-Whats-App.jpg" alt="Product B" />
+      <div>
+        <h2>sudheis</h2>
+        <p>Price: Ksh 1500</p>
+        <button onclick="addToCart('Product B', 1500)">Add to Trolley</button>
+      </div>
     </div>
-  </section>
 
-  <section id="coffee">
-    <p>If you like what I do, consider supporting me!</p>
-    <a href="https://www.buymeacoffee.com/" target="_blank">
-      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 200px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 1rem auto;">
-    </a>
-  </section>
+    <div class="cart">
+      <h3>Your Trolley</h3>
+      <ul id="cart-items"></ul>
+      <p id="discountNotice"></p>
+      <p>Total: Ksh <span id="total">0</span></p>
+      <select id="payment" onchange="toggleMpesaField()">
+        <option value="cod">Cash on Delivery</option>
+        <option value="mpesa">M-Pesa</option>
+        <option value="card">Credit Card</option>
+      </select>
+      <input type="tel" id="mpesaNumber" placeholder="Enter M-Pesa Number" style="display:none"/>
+      <button onclick="checkout()">Checkout</button>
+    </div>
 
-  <div class="social-icons">
-    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="tracking">
+      <h3>Track Your Delivery</h3>
+      <input type="text" id="trackingId" placeholder="Enter Tracking ID" />
+      <button onclick="trackDelivery()">Track</button>
+      <p id="trackingResult"></p>
+    </div>
+
+    <div class="feedback">
+      <h3>Send us your views</h3>
+      <form action="mailto:kombobakari610@gmail.com" method="POST" enctype="text/plain">
+        <textarea placeholder="Your feedback here..."></textarea>
+        <button type="submit">Send Feedback</button>
+      </form>
+    </div>
+
+    <div class="contact">
+      <h3>Contact</h3>
+      <div class="contact-icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone" />
+        <span>0754247413</span>
+      </div>
+      <div class="contact-icons">
+        <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" />
+        <a href="mailto:kombobakari610@gmail.com">kombobakari610@gmail.com</a>
+      </div>
+    </div>
   </div>
-    
-    <marquee>find us on social media @toofan2217 or email kombobakari610@gmail.com or contact me on 0754247413</marquee>
+
+  <div id="signupModal">
+    <h3>Signup</h3>
+    <input type="text" id="signupUsername" placeholder="Username" />
+    <input type="email" id="signupEmail" placeholder="Email" />
+    <input type="tel" id="signupPhone" placeholder="Phone Number" />
+    <input type="password" id="signupPassword" placeholder="Password" />
+    <button onclick="completeSignup()">Submit</button>
+  </div>
+
+  <div id="delivererConfirm">
+    <h3>Awaiting Deliverer Confirmation</h3>
+    <p>Click below once payment is done by customer.</p>
+    <button onclick="confirmPayment()">Payment Received</button>
+  </div>
 
   <footer>
-    <p>&copy; 2025 TOOFAN HUB | All rights reserved | Regards Developer Toofan |</p>
+    <p>&copy; 2025 Modern Business Shop. All rights reserved.</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
+    let cart = [];
+    let user = { username: null, email: null, phone: null };
+
+    function showLogin() {
+      const existing = confirm("Already registered? Click OK to login, Cancel to signup.");
+      if (existing) {
+        const username = prompt("Enter username:");
+        const password = prompt("Enter password:");
+        user.username = username;
+        alert("Logged in as " + username);
+        document.getElementById("main").style.display = "block";
+      } else {
+        document.getElementById("signupModal").style.display = "block";
+      }
     }
 
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Thank you for your message!");
-      this.reset();
-    });
+    function completeSignup() {
+      const username = document.getElementById("signupUsername").value;
+      const email = document.getElementById("signupEmail").value;
+      const phone = document.getElementById("signupPhone").value;
+      const password = document.getElementById("signupPassword").value;
+      if (username && email && phone && password) {
+        user.username = username;
+        user.email = email;
+        user.phone = phone;
+        alert("Signup successful. Logged in as " + username);
+        document.getElementById("signupModal").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+
+    function addToCart(product, price) {
+      const id = Date.now();
+      cart.push({ id, product, price });
+      updateCart();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.textContent = `${item.product} - Ksh ${item.price}`;
+        const cancelBtn = document.createElement('button');
+        cancelBtn.textContent = 'Cancel';
+        cancelBtn.style.marginLeft = '1em';
+        cancelBtn.onclick = () => removeFromCart(item.id);
+        li.appendChild(cancelBtn);
+        cartList.appendChild(li);
+      });
+
+      if (total > 2000) {
+        document.getElementById('discountNotice').textContent = "10% discount applied.";
+        total *= 0.9;
+      } else {
+        document.getElementById('discountNotice').textContent = "";
+      }
+
+      document.getElementById('total').textContent = total.toFixed(0);
+    }
+
+    function toggleMpesaField() {
+      const payment = document.getElementById('payment').value;
+      document.getElementById('mpesaNumber').style.display = payment === 'mpesa' ? 'block' : 'none';
+    }
+
+    function checkout() {
+      if (!user.email && !user.phone) {
+        alert("Please login or signup first.");
+        return;
+      }
+
+      const payment = document.getElementById('payment').value;
+      const total = document.getElementById('total').textContent;
+
+      if (payment === 'mpesa') {
+        const number = document.getElementById('mpesaNumber').value;
+        if (!number) {
+          alert("Please enter your M-Pesa number.");
+          return;
+        }
+        alert(`M-Pesa prompt sent to ${number}.\nAmount: Ksh ${total}`);
+      } else if (payment === 'cod') {
+        document.getElementById("delivererConfirm").style.display = "block";
+        return;
+      } else {
+        alert(`Payment method: ${payment}\nTotal paid: Ksh ${total}`);
+      }
+
+      cart = [];
+      updateCart();
+    }
+
+    function confirmPayment() {
+      document.getElementById("delivererConfirm").style.display = "none";
+      alert("Cash on delivery confirmed. Transaction completed.");
+      cart = [];
+      updateCart();
+    }
+
+    function trackDelivery() {
+      const trackingId = document.getElementById('trackingId').value;
+      const result = document.getElementById('trackingResult');
+      if (!trackingId) {
+        result.textContent = 'Please enter a valid tracking ID.';
+        return;
+      }
+      result.textContent = `Tracking ID: ${trackingId} - Status: In Transit. Estimated Delivery: 2 days.`;
+    }
   </script>
 </body>
 </html>
