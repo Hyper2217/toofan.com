@@ -2,247 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Business Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toofan hub</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: white;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f3f4f6, #e0f7fa);
+      color: #333;
     }
-    header, footer {
-      background: #333;
+    header {
+      background-color: #3f3d56;
+      padding: 1rem 2rem;
       color: white;
-      padding: 1em;
-      text-align: center;
-    }
-    nav {
-      text-align: right;
-      padding: 1em;
-      background: #444;
-      color: white;
-    }
-    .container {
-      padding: 2em;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2em;
-    }
-    .product {
-      border: 1px solid #ccc;
-      background: #fdfdfd;
-      padding: 1em;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
     }
-    .product img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+    header h1 {
+      margin: 0;
     }
-    .cart {
-      grid-column: 1 / -1;
-      background: #eee;
-      padding: 1em;
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    input, button, select, textarea {
-      margin-top: 0.5em;
-      padding: 0.5em;
+    nav a:hover {
+      text-decoration: underline;
+      color: #00bfa6;
+    }
+    main {
+      padding: 2rem;
+    }
+    .editor-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .editor {
+      flex: 1 1 30%;
+      display: flex;
+      flex-direction: column;
+    }
+    .editor label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .editor textarea {
+      flex: 1;
+      padding: 0.5rem;
+      font-family: monospace;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      min-height: 200px;
+      background-color: #fff;
+    }
+    .preview {
+      margin-top: 2rem;
+    }
+    .preview iframe {
       width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    #signupModal {
-      display: none;
-      position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      padding: 2em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 1000;
+    section {
+      margin-top: 4rem;
     }
-    .hidden {
-      display: none;
+    section h2 {
+      margin-bottom: 1rem;
+      color: #3f3d56;
+    }
+    .projects, .about, .contact {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .project-item {
+      margin-bottom: 1rem;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact label {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact input, .contact textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .contact button {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #00bfa6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact button:hover {
+      background-color: #009688;
+    }
+    footer {
+      background:#3f3d56;
+      color:#fff;
+      padding:2rem 1rem;
+      text-align:center;
+      margin-top: 4rem;
+    }
+    footer a {
+      margin: 0 0.5rem;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #00bfa6;
+    }
+    @media (max-width: 768px) {
+      .editor-section {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Modern Business Shop</h1>
+    <h1>TOOFAN HUB</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
-
-  <nav>
-    <button onclick="showLogin()">Login/Signup</button>
-  </nav>
-
-  <div class="container" id="main">
-    <div class="product">
-      <img src="https://i.ibb.co/ycVGW0v6/Screenshot-20250501-162539-Whats-App.jpg" alt="Product A" />
-      <div>
-        <h2>Sudheis</h2>
-        <p>Price: Ksh 1000</p>
-        <button onclick="addToCart('Sudheis', 1000)">Add to Trolley</button>
+  <main>
+    <section class="editor-section">
+      <div class="editor">
+        <label for="html">HTML</label>
+        <textarea id="html" placeholder="Write HTML code here..."></textarea>
       </div>
-    </div>
-    <div class="product">
-      <img src="https://i.ibb.co/qY0Cpvbd/Screenshot-20250501-162556-Whats-App.jpg" alt="Product B" />
-      <div>
-        <h2>Sudheis</h2>
-        <p>Price: Ksh 1500</p>
-        <button onclick="addToCart('Sudheis', 1500)">Add to Trolley</button>
+      <div class="editor">
+        <label for="css">CSS</label>
+        <textarea id="css" placeholder="Write CSS code here..."></textarea>
       </div>
-    </div>
-
-    <div class="cart">
-      <h3>Your Trolley</h3>
-      <ul id="cart-items"></ul>
-      <p id="discount" class="hidden">10% discount applied!</p>
-      <p>Total: Ksh <span id="total">0</span></p>
-      <select id="payment" onchange="handlePaymentChange()">
-        <option value="cod">Cash on Delivery</option>
-        <option value="mpesa">M-Pesa</option>
-        <option value="card">Credit Card</option>
-      </select>
-      <input type="tel" id="mpesaNumber" class="hidden" placeholder="Enter M-Pesa number" />
-      <button onclick="checkout()">Checkout</button>
-    </div>
-  </div>
-
-  <div id="signupModal">
-    <h3>Signup</h3>
-    <input type="text" id="signupUsername" placeholder="Username" />
-    <input type="email" id="signupEmail" placeholder="Email" />
-    <input type="tel" id="signupPhone" placeholder="Phone Number" />
-    <input type="password" id="signupPassword" placeholder="Password" />
-    <button onclick="completeSignup()">Submit</button>
-  </div>
-
+      <div class="editor">
+        <label for="js">JavaScript</label>
+        <textarea id="js" placeholder="Write JavaScript code here..."></textarea>
+      </div>
+      <div style="text-align: center; margin-top: 1rem;">
+  <button onclick="updatePreview()" style="background-color: #00bfa6; border: none; padding: 0.75rem 2rem; font-size: 1rem; color: white; border-radius: 8px; cursor: pointer; margin: 0.5rem;">Run Code</button>
+  <button onclick="clearEditors()" style="background-color: #ff5252; border: none; padding: 0.75rem 2rem; font-size: 1rem; color: white; border-radius: 8px; cursor: pointer; margin: 0.5rem;">Clear All</button>
+  <button onclick="downloadCode()" style="background-color: #3f3d56; border: none; padding: 0.75rem 2rem; font-size: 1rem; color: white; border-radius: 8px; cursor: pointer; margin: 0.5rem;">Download Code</button>
+</div>
+    </section>
+    <section class="preview">
+      <h2>Live Preview</h2>
+      <iframe id="preview"></iframe>
+    </section>
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="project-item">
+        <h3>Project One</h3>
+        <p>Description of project one.</p>
+      </div>
+      <div class="project-item">
+        <h3>Project Two</h3>
+        <p>Description of project two.</p>
+      </div>
+    </section>
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>This is a beautiful code playground that allows you to write and preview HTML, CSS, and JavaScript in real-time. It’s designed to help you test ideas, build small tools, and practice web development.</p>
+    </section>
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required />
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Your message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <p>Get in touch with Developer Toofan on 0754247413 </p>
+      </form>
+    </section>
+  </main>
   <footer>
-    <p>&copy; 2025 Modern Business Shop. All rights reserved.</p>
+    <p>&copy; 2025 Toofan hub | Built with HTML, CSS & JavaScript | Developer TOOFAN | Hyper tech</p>
+    <div style="margin-top:1rem;">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
   </footer>
-
   <script>
-    let cart = [];
-    let user = { username: null, email: null, phone: null };
+  function downloadCode() {
+  const html = htmlEditor.value;
+  const css = `<style>\n${cssEditor.value}\n</style>`;
+  const js = `<script>\n${jsEditor.value}\n<\/script>`;
+  const finalContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloaded Project</title>
+  ${css}
+</head>
+<body>
+  ${html}
+  ${js}
+</body>
+</html>`;
 
-    function showLogin() {
-      const existing = confirm("Already registered? Click OK to login, Cancel to signup.");
-      if (existing) {
-        const username = prompt("Enter username:");
-        const password = prompt("Enter password:");
-        user.username = username;
-        alert("Logged in as " + username);
-      } else {
-        document.getElementById("signupModal").style.display = "block";
-      }
+  const blob = new Blob([finalContent], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'my-project.html';
+  a.click();
+}
+    const htmlEditor = document.getElementById('html');
+    const cssEditor = document.getElementById('css');
+    const jsEditor = document.getElementById('js');
+    const previewFrame = document.getElementById('preview');
+
+    function updatePreview() {
+      const htmlContent = htmlEditor.value;
+      const cssContent = `<style>${cssEditor.value}</style>`;
+      const jsContent = `<script>${jsEditor.value}<\/script>`;
+      const combinedContent = htmlContent + cssContent + jsContent;
+      const previewDocument = previewFrame.contentDocument || previewFrame.contentWindow.document;
+      previewDocument.open();
+      previewDocument.write(combinedContent);
+      previewDocument.close();
     }
 
-    function completeSignup() {
-      const username = document.getElementById("signupUsername").value;
-      const email = document.getElementById("signupEmail").value;
-      const phone = document.getElementById("signupPhone").value;
-      const password = document.getElementById("signupPassword").value;
-      if (username && email && phone && password) {
-        user.username = username;
-        user.email = email;
-        user.phone = phone;
-        alert("Signup successful. Logged in as " + username);
-        document.getElementById("signupModal").style.display = "none";
-      } else {
-        alert("Please fill in all fields.");
-      }
-    }
+    htmlEditor.addEventListener('input', updatePreview);
+    cssEditor.addEventListener('input', updatePreview);
+    jsEditor.addEventListener('input', updatePreview);
 
-    function addToCart(product, price) {
-      if (!user.username) {
-        alert("Please login or signup first.");
-        return;
-      }
-      const id = Date.now();
-      cart.push({ id, product, price });
-      updateCart();
-    }
-
-    function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartList = document.getElementById('cart-items');
-      cartList.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price;
-        const li = document.createElement('li');
-        li.textContent = `${item.product} - Ksh ${item.price}`;
-        const cancelBtn = document.createElement('button');
-        cancelBtn.textContent = 'Cancel';
-        cancelBtn.style.marginLeft = '1em';
-        cancelBtn.onclick = () => removeFromCart(item.id);
-        li.appendChild(cancelBtn);
-        cartList.appendChild(li);
-      });
-
-      const discountNote = document.getElementById("discount");
-      if (total > 2000) {
-        total *= 0.9;
-        discountNote.classList.remove("hidden");
-      } else {
-        discountNote.classList.add("hidden");
-      }
-
-      document.getElementById('total').textContent = total.toFixed(0);
-    }
-
-    function handlePaymentChange() {
-      const payment = document.getElementById('payment').value;
-      const mpesaField = document.getElementById('mpesaNumber');
-      if (payment === "mpesa") {
-        mpesaField.classList.remove("hidden");
-      } else {
-        mpesaField.classList.add("hidden");
-      }
-    }
-
-    function checkout() {
-      if (!user.username) {
-        alert("Please login or signup first.");
-        return;
-      }
-
-      const payment = document.getElementById('payment').value;
-      const total = document.getElementById('total').textContent;
-
-      if (payment === "mpesa") {
-        const number = document.getElementById('mpesaNumber').value;
-        if (!number) {
-          alert("Please enter your M-Pesa number to be prompted.");
-          return;
-        }
-        alert(`Prompt sent to ${number}. Please complete payment of Ksh ${total}.`);
-      } else if (payment === "cod") {
-        alert("The deliverer will confirm once payment is received.");
-        setTimeout(() => {
-          const confirm = prompt("Deliverer: Has payment been received? Type YES to confirm.");
-          if (confirm && confirm.toLowerCase() === "yes") {
-            alert("Payment confirmed. Order successful.");
-            cart = [];
-            updateCart();
-          } else {
-            alert("Payment not confirmed. Order pending.");
-          }
-        }, 1000);
-        return;
-      } else {
-        alert(`Paid Ksh ${total} via ${payment}. Thank you.`);
-      }
-
-      cart = [];
-      updateCart();
-    }
+    updatePreview();
   </script>
 </body>
 </html>
