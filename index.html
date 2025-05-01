@@ -173,6 +173,22 @@ section {
   transform: scale(1.2);
 }
 
+.profile-pic {
+  display: block;
+  max-width: 150px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.coffee-img {
+  width: 120px;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+
 footer {
   background-color: #fff;
   text-align: center;
@@ -203,6 +219,7 @@ footer {
     <h2>Welcome to My Personal Site</h2>
     <p>Hi! I'm a creative individual passionate about technology and design.</p>
   </section>  <section id="about">
+    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
     <h2>About Me</h2>
     <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.</p>
   </section>  <section id="services">
@@ -232,6 +249,7 @@ footer {
   </section>  <section id="coffee">
     <h2>Buy Me a Coffee</h2>
     <p>If you like what I do, consider supporting me!</p>
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" class="coffee-img">
     <a href="https://www.buymeacoffee.com/" class="btn" target="_blank">Buy Me a Coffee</a>
   </section>  <div class="social-icons">
     <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
