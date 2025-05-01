@@ -1,244 +1,254 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Business Shop</title>
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-    }
-    header, footer {
-      background: #333;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-    nav {
-      text-align: right;
-      padding: 1em;
-      background: #444;
-      color: white;
-    }
-    .container {
-      padding: 2em;
-    }
-    .product {
-      border: 1px solid #ccc;
-      background: white;
-      padding: 1em;
-      margin-bottom: 1em;
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    .product img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-    }
-    .cart {
-      margin-top: 2em;
-      background: #eee;
-      padding: 1em;
-    }
-    input, button, select, textarea {
-      margin-top: 0.5em;
-      padding: 0.5em;
-      width: 100%;
-    }
-    .feedback, .contact, .tracking {
-      margin-top: 2em;
-    }
-    .contact-icons {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      margin-top: 1em;
-    }
-    .contact-icons img {
-      width: 24px;
-      height: 24px;
-    }
-    #signupModal {
-      display: none;
-      position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      padding: 2em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-    }
+    :root {
+      --primary-color: #ff6f61;
+      --hover-color: #ff3b2e;
+      --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --border-radius: 12px;
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-gradient);
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    flex-direction: column;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+  }
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.intro {
+  text-align: center;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+.contact-form textarea, .contact-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--hover-color);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>Modern Business Shop</h1>
-  </header>
-
-  <nav>
-    <button onclick="showLogin()">Login/Signup</button>
-  </nav>
-
-  <div class="container" id="main">
-    <div class="product">
-       <img src="https://i.ibb.co/ycVGW0v6/Screenshot-20250501-162539-Whats-App.jpg" alt="Product A" />
-      <div>
-        <h2>sudheis</h2>
-        <p>Price: Ksh 1000</p>
-        <button onclick="addToCart('Product A', 1000)">Add to Trolley</button>
+    <h1>My Website</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <div class="nav-links" id="navLinks">
+        <a href="#intro">Intro</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Get in Touch</a>
+      </div>
+    </nav>
+  </header>  <section id="intro" class="intro">
+    <h2>Welcome to My Personal Site</h2>
+    <p>Hi! I'm a creative individual passionate about technology and design.</p>
+  </section>  <section id="about">
+    <h2>About Me</h2>
+    <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.</p>
+  </section>  <section id="services">
+    <h2>Services</h2>
+    <div class="services">
+      <div class="service-box">
+        <h3>Web Design</h3>
+        <p>Responsive, modern designs tailored to your brand.</p>
+      </div>
+      <div class="service-box">
+        <h3>Development</h3>
+        <p>Clean and efficient code for fast and scalable websites.</p>
+      </div>
+      <div class="service-box">
+        <h3>Consultation</h3>
+        <p>Expert advice on design, tech, and strategy.</p>
       </div>
     </div>
-    <div class="product">
-      <img src="https://i.ibb.co/qY0Cpvbd/Screenshot-20250501-162556-Whats-App.jpg" alt="Product B" />
-      <div>
-        <h2>sudheis</h2>
-        <p>Price: Ksh 1500</p>
-        <button onclick="addToCart('Product B', 1500)">Add to Trolley</button>
-      </div>
-    </div>
-
-    <div class="cart">
-      <h3>Your Trolley</h3>
-      <ul id="cart-items"></ul>
-      <p>Total: Ksh <span id="total">0</span></p>
-      <select id="payment">
-        <option value="cod">Cash on Delivery</option>
-        <option value="mpesa">M-Pesa</option>
-        <option value="card">Credit Card</option>
-      </select>
-      <button onclick="checkout()">Checkout</button>
-    </div>
-
-    <div class="tracking">
-      <h3>Track Your Delivery</h3>
-      <input type="text" id="trackingId" placeholder="Enter Tracking ID" />
-      <button onclick="trackDelivery()">Track</button>
-      <p id="trackingResult"></p>
-    </div>
-
-    <div class="feedback">
-      <h3>Send us your views</h3>
-      <form action="mailto:kombobakari610@gmail.com" method="POST" enctype="text/plain">
-        <textarea placeholder="Your feedback here..."></textarea>
-        <button type="submit">Send Feedback</button>
-      </form>
-    </div>
-
-    <div class="contact">
-      <h3>Contact</h3>
-      <div class="contact-icons">
-        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone" />
-        <span>0754247413</span>
-      </div>
-      <div class="contact-icons">
-        <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" />
-        <a href="mailto:kombobakari610@gmail.com">kombobakari610@gmail.com</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="signupModal">
-    <h3>Signup</h3>
-    <input type="text" id="signupUsername" placeholder="Username" />
-    <input type="email" id="signupEmail" placeholder="Email" />
-    <input type="tel" id="signupPhone" placeholder="Phone Number" />
-    <input type="password" id="signupPassword" placeholder="Password" />
-    <button onclick="completeSignup()">Submit</button>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Modern Business Shop. All rights reserved.</p>
-  </footer>
-
-  <script>
-    let cart = [];
-    let user = { username: null, email: null, phone: null };
-
-    function showLogin() {
-      const existing = confirm("Already registered? Click OK to login, Cancel to signup.");
-      if (existing) {
-        const username = prompt("Enter username:");
-        const password = prompt("Enter password:");
-        user.username = username;
-        alert("Logged in as " + username);
-      } else {
-        document.getElementById("signupModal").style.display = "block";
-      }
+  </section>  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Share your views..."></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </section>  <section id="coffee">
+    <h2>Buy Me a Coffee</h2>
+    <p>If you like what I do, consider supporting me!</p>
+    <a href="https://www.buymeacoffee.com/" class="btn" target="_blank">Buy Me a Coffee</a>
+  </section>  <div class="social-icons">
+    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>  <footer>
+    <p>&copy; 2025 My Personal Website. All rights reserved.</p>
+  </footer>  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
     }
 
-    function completeSignup() {
-      const username = document.getElementById("signupUsername").value;
-      const email = document.getElementById("signupEmail").value;
-      const phone = document.getElementById("signupPhone").value;
-      const password = document.getElementById("signupPassword").value;
-      if (username && email && phone && password) {
-        user.username = username;
-        user.email = email;
-        user.phone = phone;
-        alert("Signup successful. Logged in as " + username);
-        document.getElementById("signupModal").style.display = "none";
-      } else {
-        alert("Please fill in all fields.");
-      }
-    }
-
-    function addToCart(product, price) {
-      const id = Date.now();
-      cart.push({ id, product, price });
-      updateCart();
-    }
-
-    function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartList = document.getElementById('cart-items');
-      cartList.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price;
-        const li = document.createElement('li');
-        li.textContent = `${item.product} - Ksh ${item.price}`;
-        const cancelBtn = document.createElement('button');
-        cancelBtn.textContent = 'Cancel';
-        cancelBtn.style.marginLeft = '1em';
-        cancelBtn.onclick = () => removeFromCart(item.id);
-        li.appendChild(cancelBtn);
-        cartList.appendChild(li);
-      });
-      document.getElementById('total').textContent = total;
-    }
-
-    function checkout() {
-      if (!user.email && !user.phone) {
-        alert("Please login or signup first.");
-        return;
-      }
-      const payment = document.getElementById('payment').value;
-      const total = document.getElementById('total').textContent;
-      const contact = user.email || user.phone;
-      alert(`Payment method: ${payment}\nTotal paid: Ksh ${total}\nReceipt sent to: ${contact}`);
-      cart = [];
-      updateCart();
-    }
-
-    function trackDelivery() {
-      const trackingId = document.getElementById('trackingId').value;
-      const result = document.getElementById('trackingResult');
-      if (!trackingId) {
-        result.textContent = 'Please enter a valid tracking ID.';
-        return;
-      }
-      result.textContent = `Tracking ID: ${trackingId} - Status: In Transit. Estimated Delivery: 2 days.`;
-    }
-  </script>
-</body>
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thank you for your message!");
+      this.reset();
+    });
+  </script></body>
 </html>
