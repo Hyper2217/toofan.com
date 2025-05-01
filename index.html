@@ -1,8 +1,9 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Personal Website</title>
+  <title>toofan</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
@@ -11,189 +12,195 @@
       --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
       --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       --border-radius: 12px;
-    }* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg-gradient);
-  color: #333;
-  scroll-behavior: smooth;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
+    header {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.menu-toggle div {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 4px 0;
-}
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
 
-nav {
-  display: flex;
-  align-items: center;
-}
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+    }
 
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
+    nav {
+      display: flex;
+      align-items: center;
+    }
 
-nav a:hover {
-  color: var(--primary-color);
-}
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-.nav-links {
-  display: flex;
-}
+    nav a:hover {
+      color: var(--primary-color);
+    }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
+    .nav-links {
+      display: flex;
+    }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #fff;
-    flex-direction: column;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-  }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
 
-  .nav-links.show {
-    display: flex;
-  }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #fff;
+        flex-direction: column;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
 
-  .nav-links a {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-    margin: 0;
-  }
-}
+      .nav-links.show {
+        display: flex;
+      }
 
-section {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: auto;
-  animation: fadeIn 1s ease-in-out;
-}
+      .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+      }
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-.intro {
-  text-align: center;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
+    .intro {
+      text-align: center;
+    }
 
-.service-box {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  transition: transform 0.3s;
-}
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
 
-.service-box:hover {
-  transform: translateY(-5px);
-}
+    .service-box {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s;
+    }
 
-.contact-form textarea, .contact-form input {
-  width: 100%;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
 
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    .contact-form textarea, .contact-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-.btn:hover {
-  background-color: var(--hover-color);
-}
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
+    .btn:hover {
+      background-color: var(--hover-color);
+    }
 
-.social-icons a {
-  color: #333;
-  font-size: 1.5rem;
-  transition: color 0.3s, transform 0.3s;
-}
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
 
-.social-icons a:hover {
-  color: var(--primary-color);
-  transform: scale(1.2);
-}
+    .social-icons a {
+      color: #333;
+      font-size: 1.5rem;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-.profile-pic {
-  display: block;
-  max-width: 150px;
-  border-radius: 50%;
-  margin: 0 auto 1rem;
-  box-shadow: var(--box-shadow);
-}
+    .social-icons a:hover {
+      color: var(--primary-color);
+      transform: scale(1.2);
+    }
 
-footer {
-  background-color: #fff;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
-}
+    .profile-pic {
+      display: block;
+      max-width: 150px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      box-shadow: var(--box-shadow);
+    }
 
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    .contact-details {
+      margin-top: 2rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>My Website</h1>
+    <h1>TOOFAN HUB</h1>
     <div class="menu-toggle" onclick="toggleMenu()">
       <div></div>
       <div></div>
@@ -207,30 +214,39 @@ footer {
         <a href="#contact">Get in Touch</a>
       </div>
     </nav>
-  </header>  <section id="intro" class="intro">
+  </header>
+
+  <section id="intro" class="intro">
     <h2>Welcome to My Personal Site</h2>
     <p>Hi! I'm a creative individual passionate about technology and design.</p>
-    <img src="https://i.ibb.co/8LK5k8CZ/20240411-164315.jpg" height="150" alt="profile picture" class="profile-pic">
-  </section>  <section id="about">
+    <img src="https://i.ibb.co/8LK5k8CZ/20240411-164315.jpg" alt="profile picture" class="profile-pic"
+  </section> <section id="about">
     <h2>About Me</h2>
-    <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.</p>
-  </section>  <section id="services">
+    <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.
+I'm a dedicated web designer with a focus on blending innovative design with seamless functionality. With a strong background in crafting responsive, user-centric websites, I create digital experiences that are both visually compelling and intuitive to navigate. My goal is to help businesses build strong online identities by translating their vision into well-executed, beautiful websites. Whether you need a fresh design or a website overhaul, I’m here to bring your ideas to life with precision and creativity.Not only do I specialise on web developing but also Electrical engineering.
+As an electrical engineer, I specialize in designing and implementing innovative solutions for complex electrical systems. With a deep understanding of circuitry, power distribution, and control systems, I’m dedicated to creating efficient, reliable, and safe electrical systems that meet the highest industry standards. Whether working on large-scale projects or intricate technical designs, I thrive on solving challenges and delivering practical, cutting-edge solutions to my clients.</p>
+  </section>
+
+  <section id="services">
     <h2>Services</h2>
     <div class="services">
       <div class="service-box">
         <h3>Web Design</h3>
-        <p>Responsive, modern designs tailored to your brand.</p>
+        <p>Responsive, modern designs tailored to your brand.Professional web design services that combine creativity with functionality. From responsive websites to custom designs, I focus on delivering seamless, user-friendly experiences that help businesses make a lasting online impression.</p>
       </div>
       <div class="service-box">
         <h3>Development</h3>
-        <p>Clean and efficient code for fast and scalable websites.</p>
+        <p>Clean and efficient code for fast and scalable websites.I provide comprehensive web development services, specializing in building fast, secure, and scalable websites. From front-end design to back-end functionality, I use the latest technologies to create custom web solutions that are tailored to your business needs. Whether it's a simple landing page or a complex web application, I ensure that your website performs flawlessly across all devices.</p>
       </div>
       <div class="service-box">
-        <h3>Consultation</h3>
-        <p>Expert advice on design, tech, and strategy.</p>
+        <h3>Electrical Engineering</h3>
+        <p>I offer expert electrical engineering services, specializing in designing and optimizing electrical systems for efficiency, safety, and reliability. Whether you're working on power distribution, control systems, or circuit design, I provide customized solutions that meet industry standards and ensure optimal performance. From residential to industrial projects, I’m dedicated to delivering high-quality results with precision and innovation.</p>
       </div>
+      
     </div>
-  </section>  <section id="contact">
+  </section>
+
+  <section id="contact">
     <h2>Get in Touch</h2>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
@@ -238,20 +254,36 @@ footer {
       <textarea rows="5" placeholder="Share your views..."></textarea>
       <button class="btn" type="submit">Send Message</button>
     </form>
-  </section>  <section id="coffee">
-   
-    <center><p>If you like what I do, consider supporting me!</p></center>
+
+    <div class="contact-details" style="margin-top: 2rem; text-align: center;">
+      <h3>Contact Me</h3>
+      <p><i class="fas fa-phone-alt"></i> Call Me: 0754247413</p>
+      <p><i class="fab fa-instagram"></i> Instagram: @toofan2217</p>
+      <p><i class="fas fa-envelope"></i> Email: kombobakari610@gmail.com</p>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <p>If you like what I do, consider supporting me!</p>
     <a href="https://www.buymeacoffee.com/" target="_blank">
       <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 200px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 1rem auto;">
     </a>
-  </section>  <div class="social-icons">
+  </section>
+
+  <div class="social-icons">
     <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>  <footer>
-    <p>&copy; 2025 Toofan.com | All rights reserved | contact me on 0754247413 |</p>
-  </footer>  <script>
+  </div>
+    
+    <marquee>find us on social media @toofan2217 or email kombobakari610@gmail.com or contact me on 0754247413</marquee>
+
+  <footer>
+    <p>&copy; 2025 TOOFAN HUB | All rights reserved | Regards Developer Toofan |</p>
+  </footer>
+
+  <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('show');
     }
@@ -261,5 +293,6 @@ footer {
       alert("Thank you for your message!");
       this.reset();
     });
-  </script></body>
+  </script>
+</body>
 </html>
