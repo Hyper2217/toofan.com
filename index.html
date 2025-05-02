@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>toofan</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TOOFAN HUB</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
     :root {
-      --primary-color: #ff6f61;
-      --hover-color: #ff3b2e;
-      --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-      --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --primary-color: #00f0ff;
+      --hover-color: #00c0cc;
+      --bg-color: #0a0a0a;
+      --card-bg: #111;
+      --text-color: #eee;
+      --box-shadow: 0 4px 8px rgba(0, 255, 255, 0.2);
       --border-radius: 12px;
     }
 
@@ -22,21 +24,38 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-gradient);
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       scroll-behavior: smooth;
     }
 
     header {
-      background-color: #fff;
+      background-color: #000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: var(--box-shadow);
+    }
+
+    header img {
+      height: 60px;
+      filter: drop-shadow(0 0 8px var(--primary-color));
+    }
+
+    .tagline {
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #clock {
+      color: var(--primary-color);
+      font-size: 1.1rem;
     }
 
     .menu-toggle {
@@ -48,7 +67,7 @@
     .menu-toggle div {
       width: 25px;
       height: 3px;
-      background-color: #333;
+      background-color: var(--primary-color);
       margin: 4px 0;
     }
 
@@ -60,7 +79,7 @@
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      color: var(--text-color);
       font-weight: 500;
       transition: color 0.3s;
     }
@@ -81,13 +100,12 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 70px;
         right: 20px;
-        background-color: #fff;
+        background-color: #111;
         flex-direction: column;
         box-shadow: var(--box-shadow);
         border-radius: var(--border-radius);
-        overflow: hidden;
       }
 
       .nav-links.show {
@@ -96,7 +114,7 @@
 
       .nav-links a {
         padding: 1rem;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #222;
         margin: 0;
       }
     }
@@ -117,6 +135,14 @@
       text-align: center;
     }
 
+    .profile-pic {
+      display: block;
+      max-width: 150px;
+      border-radius: 50%;
+      margin: 1rem auto;
+      box-shadow: var(--box-shadow);
+    }
+
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -124,7 +150,7 @@
     }
 
     .service-box {
-      background-color: #fff;
+      background-color: var(--card-bg);
       padding: 2rem;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
@@ -135,19 +161,10 @@
       transform: translateY(-5px);
     }
 
-    .contact-form textarea, .contact-form input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
     .btn {
-      display: inline-block;
       padding: 0.8rem 1.5rem;
       background-color: var(--primary-color);
-      color: white;
+      color: black;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -158,6 +175,16 @@
       background-color: var(--hover-color);
     }
 
+    .contact-form textarea, .contact-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: var(--text-color);
+    }
+
     .social-icons {
       display: flex;
       gap: 1rem;
@@ -166,95 +193,150 @@
     }
 
     .social-icons a {
-      color: #333;
+      color: var(--primary-color);
       font-size: 1.5rem;
-      transition: color 0.3s, transform 0.3s;
+      transition: transform 0.3s;
     }
 
     .social-icons a:hover {
-      color: var(--primary-color);
       transform: scale(1.2);
     }
 
-    .profile-pic {
-      display: block;
-      max-width: 150px;
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-      box-shadow: var(--box-shadow);
-    }
-
     footer {
-      background-color: #fff;
+      background-color: #000;
       text-align: center;
-      padding: 1rem;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+      border-top: 2px solid var(--primary-color);
+      box-shadow: 0 -2px 4px rgba(0, 255, 255, 0.1);
+      color: #888;
     }
 
-    .contact-details {
-      margin-top: 2rem;
-      text-align: center;
+    marquee {
+      color: var(--primary-color);
+      padding: 1rem;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow: 0 0 10px #25d366;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>TOOFAN HUB</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://i.ibb.co/Kjtp0JMK/file-00000000a90461f7a71597bd3a9b0c57.png" alt="Toofan Logo">
+      <span class="tagline">Tech. Code. Power.</span>
     </div>
+    <div id="clock"></div>    
+    <!-- Language Selector - Add this here -->
+    <div id="language-selector" style="color: var(--primary-color);">
+      <select onchange="changeLanguage(this.value)" style="background-color: #222; color: var(--primary-color); border: none; padding: 0.5rem; border-radius: 8px;">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <!-- Add more languages as needed -->
+      </select>
+    </div>
+
+    <!-- Menu toggle (hamburger icon) -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+
+    <!-- Navigation Links -->
     <nav>
       <div class="nav-links" id="navLinks">
         <a href="#intro">Intro</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Get in Touch</a>
       </div>
     </nav>
-  </header>
+</header>
+     
 
   <section id="intro" class="intro">
     <h2>Welcome to My Personal Site</h2>
     <p>Hi! I'm a creative individual passionate about technology and design.</p>
-    <img src="https://i.ibb.co/8LK5k8CZ/20240411-164315.jpg" alt="profile picture" class="profile-pic"
-  </section> <section id="about">
+    <img src="https://i.ibb.co/PsL3m6W5/20250324-090116.jpg" alt="profile picture" class="profile-pic"/>
+  </section>
+
+  <section id="about">
     <h2>About Me</h2>
-    <p>I specialize in web development and enjoy building interactive, responsive websites with a modern look and feel.
-I'm a dedicated web designer with a focus on blending innovative design with seamless functionality. With a strong background in crafting responsive, user-centric websites, I create digital experiences that are both visually compelling and intuitive to navigate. My goal is to help businesses build strong online identities by translating their vision into well-executed, beautiful websites. Whether you need a fresh design or a website overhaul, I’m here to bring your ideas to life with precision and creativity.Not only do I specialise on web developing but also Electrical engineering.
-As an electrical engineer, I specialize in designing and implementing innovative solutions for complex electrical systems. With a deep understanding of circuitry, power distribution, and control systems, I’m dedicated to creating efficient, reliable, and safe electrical systems that meet the highest industry standards. Whether working on large-scale projects or intricate technical designs, I thrive on solving challenges and delivering practical, cutting-edge solutions to my clients.</p>
+    <p>
+      I'm a dedicated web designer and electrical engineer passionate about combining creativity with technology.
+      I craft responsive, user-friendly websites and design innovative electrical systems. My work blends clean code with intuitive layouts and reliable, efficient circuitry — all to help clients achieve seamless digital and technical solutions.Toofan.com is where bold design meets cutting-edge engineering. We’re a hybrid studio combining the worlds of web design and electrical engineering to build smarter, more connected experiences—online and offline.
+      Our web design team crafts sleek, responsive interfaces that are not only visually stunning but also optimized for performance, accessibility, and engagement. Whether it's a startup landing page, a custom dashboard, or a full-scale platform, we bring your digital vision to life with style and speed.
+      On the engineering side, we dive deep into the hardware—developing intelligent systems, embedded solutions, and custom electronics that power real-world innovations. From prototyping to final implementation, we fuse software and hardware into seamless, scalable solutions.
+      We don’t just code websites or wire circuits—we build tech ecosystems. Whether you're launching a digital product, integrating IoT, or creating something that’s never been done before, Toofan.com is your creative, technical partner.
+      Let’s design the future—together.
+    </p>
   </section>
 
   <section id="services">
     <h2>Services</h2>
     <div class="services">
+      <div class="service-box"><h3>Web Design</h3><p>Responsive, modern designs tailored to your brand.At Toofan.com, we specialize in creating stunning, user-friendly websites tailored to meet the unique needs of each client. With a passion for innovation and a keen eye for design, we deliver websites that not only look great but also provide seamless user experiences. Whether you need a modern, futuristic look with neon aesthetics or a more minimalist approach, we ensure your site stands out and engages visitors. Our services include custom design, responsive layouts, and cutting-edge technology to bring your vision to life. Let us help you build an online presence that is both attractive and functional.</p></div>
+      <div class="service-box"><h3>Development</h3><p>Clean and efficient code for fast and scalable websites.At Toofan.com, we offer comprehensive web development services that turn your ideas into fully functional websites. Combining the latest technologies and best practices, we create fast, secure, and scalable solutions that enhance user experience and boost your online presence. From front-end development with interactive, dynamic features to back-end systems that ensure seamless functionality, we handle every aspect of web development. Whether you need a content management system (CMS), e-commerce platform, or custom web application, we deliver robust, high-performance websites that meet your business goals and exceed user expectations.</p></div>
+      <div class="service-box"><h3>Electrical Engineering</h3><p>Custom electrical system design focused on innovation and safety.At Toofan.com, we provide innovative electrical engineering solutions designed to meet the complex demands of modern industries. With a focus on efficiency, safety, and sustainability, our services cover everything from circuit design and power systems to automation and control systems. We specialize in integrating cutting-edge technology to optimize performance, reduce energy consumption, and ensure reliable operations.
+
+Additionally, we offer expert solar panel installation to help you harness renewable energy and reduce your carbon footprint, providing efficient, eco-friendly solutions tailored to your needs. Our CCTV installation services ensure comprehensive security systems for your home or business, offering peace of mind with top-quality surveillance solutions. Whether you're looking to develop custom electrical systems, implement energy-efficient solutions, or enhance existing infrastructure, our team of experienced engineers is dedicated to delivering high-quality, tailored solutions that meet your specific needs.</p></div>
+      <div class="service-box"><h3>SEO Optimization</h3><p>Boost your visibility with powerful SEO strategies.At Toofan.com, we help businesses increase their online visibility and drive more traffic through expert SEO optimization. Our team uses the latest strategies and best practices to ensure your website ranks higher on search engines, attracting more potential customers. From keyword research and on-page optimization to link building and content strategy, we take a comprehensive approach to SEO that focuses on long-term results. Whether you’re looking to improve local search rankings, enhance your website's user experience, or drive targeted traffic, we provide customized SEO solutions that align with your goals and ensure sustained growth in a competitive digital landscape.</p></div>
+     <div class="service-box">
+  <h3>Projects</h3>
+  <div>
+    <p><span class="bold">PROJECT 1: TOOFAN HTML/CSS/JavaScript Playground</span></p>
+    <img src="https://i.ibb.co/zhPsfW5R/Screenshot-20250502-205354-Html-Editor.jpg" alt="Toofan Playground" style="width:100%; border-radius: 8px; margin: 0.5rem 0;">
+    <p>An interactive space for live coding and previewing. Ideal for developers learning or testing ideas quickly.</p>
+  </div>
+  <div>
+    <p><span class="bold">PROJECT 2: TOOFAN.COM Personal Website</span></p>
+    <img src="https://i.ibb.co/ync7RkGz/file-00000000a90461f7a71597bd3a9b0c57.png" alt="Toofan Website" style="width:100%; border-radius: 8px; margin: 0.5rem 0;">
+    <p>A futuristic, neon-styled digital hub showcasing web tools, creativity, and tech innovations.</p>
+  </div>
+  <div>
+    <p><span class="bold">PROJECT 3: Hypertech Solutions</span></p>
+    <img src="https://i.ibb.co/fzxJBTpy/01b965fa-9809-4d39-88f5-a5e87cdd41bd.jpg" alt="Hypertech Solutions" style="width:100%; border-radius: 8px; margin: 0.5rem 0;">
+    <p>A smart tech project focused on delivering advanced automation and IoT-powered systems.</p>
+  </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="services">
       <div class="service-box">
-        <h3>Web Design</h3>
-        <p>Responsive, modern designs tailored to your brand.Professional web design services that combine creativity with functionality. From responsive websites to custom designs, I focus on delivering seamless, user-friendly experiences that help businesses make a lasting online impression.</p>
+        <p>"Toofan built my website and it's absolutely stunning! Fast, modern, and mobile-friendly."</p>
+        <p style="font-style: italic;">— A Happy Client</p>
       </div>
       <div class="service-box">
-        <h3>Development</h3>
-        <p>Clean and efficient code for fast and scalable websites.I provide comprehensive web development services, specializing in building fast, secure, and scalable websites. From front-end design to back-end functionality, I use the latest technologies to create custom web solutions that are tailored to your business needs. Whether it's a simple landing page or a complex web application, I ensure that your website performs flawlessly across all devices.</p>
+        <p>"His electrical project design saved us energy and costs. Highly recommended."</p>
+        <p style="font-style: italic;">— Engineering Project Partner</p>
       </div>
       <div class="service-box">
-        <h3>Electrical Engineering</h3>
-        <p>I offer expert electrical engineering services, specializing in designing and optimizing electrical systems for efficiency, safety, and reliability. Whether you're working on power distribution, control systems, or circuit design, I provide customized solutions that meet industry standards and ensure optimal performance. From residential to industrial projects, I’m dedicated to delivering high-quality results with precision and innovation.</p>
+        <p>"The team at Toofan.com installed our solar panels and CCTV system flawlessly. They were professional, efficient, and explained every step. Now our energy bills are down, and we feel much more secure!"</p>
+        <p style="font-style: italic;">-A Happy Client</p>
       </div>
-      
     </div>
   </section>
 
   <section id="contact">
     <h2>Get in Touch</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Share your views..."></textarea>
+    <form class="contact-form" onsubmit="sendEmail(event)">
+      <input id="name" type="text" placeholder="Your Name" required />
+      <input id="email" type="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Share your views..." required></textarea>
       <button class="btn" type="submit">Send Message</button>
     </form>
-
     <div class="contact-details" style="margin-top: 2rem; text-align: center;">
       <h3>Contact Me</h3>
       <p><i class="fas fa-phone-alt"></i> Call Me: 0754247413</p>
@@ -264,35 +346,146 @@ As an electrical engineer, I specialize in designing and implementing innovative
   </section>
 
   <section id="coffee">
-    <p>If you like what I do, consider supporting me!</p>
+    <p style="text-align:center;">If you like what I do, consider supporting me!</p>
     <a href="https://www.buymeacoffee.com/" target="_blank">
-      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 200px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 1rem auto;">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 200px; border-radius: 12px; display: block; margin: 1rem auto;">
     </a>
   </section>
 
   <div class="social-icons">
     <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/254754247413" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
-    
-    <marquee>find us on social media @toofan2217 or email kombobakari610@gmail.com or contact me on 0754247413</marquee>
+
+  <marquee>Find us on social media @toofan2217 or email kombobakari610@gmail.com or contact me on 0754247413</marquee>
 
   <footer>
-    <p>&copy; 2025 TOOFAN HUB | All rights reserved | Regards Developer Toofan |</p>
+    <div style="margin-bottom: 1rem;">
+      <a href="#about" style="color: var(--primary-color); margin: 0 1rem;">About</a>
+      <a href="#services" style="color: var(--primary-color); margin: 0 1rem;">Services</a>
+      <a href="#contact" style="color: var(--primary-color); margin: 0 1rem;">Contact</a>
+    </div>
+    <p>&copy; 2025 TOOFAN.com | All rights reserved | Regards, Developer Toofan,Bera tech </p>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
-    }
+  <a href="https://wa.me/254754247413" class="floating-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Thank you for your message!");
-      this.reset();
-    });
-  </script>
+ <script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+
+  function sendEmail(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    if (name && email && message) {
+      alert("Message sent successfully!");
+      document.querySelector(".contact-form").reset();
+    } else {
+      alert("Please fill in all fields.");
+    }
+  }
+
+  // Add this part directly below the sendEmail function
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString(); // change to now.toLocaleTimeString('en-GB') for 24-hour format
+    document.getElementById('clock').textContent = time;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+    <!-- Preloader -->
+<div id="preloader" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+">
+  <div style="color: #0ff; font-size: 24px;">Loading...</div>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254754247413" target="_blank" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  box-shadow: 0 0 10px #25D366;
+  z-index: 1000;
+">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Back to Top Button -->
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background-color: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #0ff;
+  z-index: 1000;
+">
+  ↑ Top
+</button>
+
+<!-- Typing Text Animation -->
+<div style="text-align:center; font-size: 20px; color: #0ff; margin-top: 30px;">
+  <span id="type-text"></span>
+</div>
+
+<!-- Neon Hover CSS -->
+<style>
+  .glow-button:hover {
+    box-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
+    color: #0ff !important;
+    background-color: #111 !important;
+  }
+</style>
+
+<!-- Scripts -->
+<script>
+  // Preloader hide
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+
+  // Typing animation
+  const text = "Innovating Tech, Elevating Futures.";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("type-text").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+  type();
+</script>
+
+<!-- Font Awesome (for WhatsApp icon) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
